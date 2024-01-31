@@ -1,0 +1,15 @@
+__pycache__/*
+images/*
+*.pyc
+*.pth
+*.npy
+saved_model/*
+logs/*
+metrics/*
+*.log
+*.info
+*.jpg
+*.png
+*.h5
+*.pkl
+runfiles/*
