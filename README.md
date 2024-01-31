@@ -1,8 +1,19 @@
 # PNNP (Evaluation Only)
-The training code will be available after the paper is accepted.
+### The training code will be available after the paper is accepted.  
+Currently, this project is only used to evaluate the performance of denoising models trained based on PNNP.  
+We also provide a validation service for comparative methods, making it convenient for everyone to verify various comparison methods under a unified low-light denoising dataset codebase.   
+Currently, supported comparion include:
+1. Paired Data (baseline)
+3. P-G
+4. ELD
+5. SFRN
+6. NoiseFlow
+7. PMN (MM/TPAMI)
 
-## 📝 Guidance
-**Coming Soon (ETA: 2.3)**
+We will provide support for additional comparative methods in the future.
+
+## 📝 Guidelines
+**Coming Soon (ETA: 2.4)**
 
 ## 🏷️ Citation
 If you find our code helpful in your research or work please cite our paper.
