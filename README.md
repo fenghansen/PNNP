@@ -1,7 +1,7 @@
 # PNNP (Evaluation Only)
 ### The training code will be available after the paper is accepted.  
 Currently, this project is only used to evaluate the performance of denoising models trained based on PNNP.  
-We also provide a validation service for comparative methods, allowing everyone to verify various comparison methods under a unified low-light denoising dataset codebase.   
+We also provide a evaluation service for comparative methods, allowing everyone to verify various comparison methods under a unified low-light denoising dataset codebase.   
 Currently, supported comparison include:
 1. Paired Data (baseline)
 3. P-G
@@ -18,7 +18,7 @@ We will provide support for additional comparative methods in the future.
 * Platforms: Ubuntu 16.04, cuda-10.1
 * Our method can run on the CPU, but we recommend you run it on the GPU
 
-Please download the datasets first, which are necessary for validation (or training).   
+Please download the datasets first, which are necessary for evaluation (or training).   
 ELD ([official project](https://github.com/Vandermode/ELD)): [download (11.46 GB)](https://drive.google.com/file/d/13Ge6-FY9RMPrvGiPvw7O4KS3LNfUXqEX/view?usp=sharing)  
 SID ([official project](https://github.com/cchen156/Learning-to-See-in-the-Dark)):  [download (25 GB)](https://storage.googleapis.com/isl-datasets/SID/Sony.zip)  
 LRID ([official project](https://fenghansen.github.io/publication/PMN/)):  [download (523 GB)](https://pan.baidu.com/s/1fXlb-Q_ofHOtVOufe5cwDg?pwd=vmcl), including LRID_raw (523 GB, all data), LRID (185.1 GB, for training), results (19.92 GB, PMN visual results) and metrics (59KB, pkl files). **Just download LRID (185.1 GB) is ok.**
@@ -38,7 +38,7 @@ python3 get_dataset_infos.py --dstname LRID --root_dir /data/LRID
 python3 get_dataset_infos.py --dstname SID --root_dir /data/SID/Sony --mode train
 # python3 get_dataset_infos.py --dstname LRID --root_dir /data/LRID
 ```
-2. validation  
+2. evaluation  
 
 Obviously, you can replace PNNP with other method names. We now provide the weights of P-G, ELD, SFRN, NoiseFlow, LRD, and PMN.
 ```bash 
