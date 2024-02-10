@@ -463,12 +463,12 @@ class LRID_Parser():
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     def parse(self):
-        self.parser.add_argument('--runfile', '-f', default="runfiles/IMX686/SFRN+DSC2.yml", type=Path, help="path to config")
-        self.parser.add_argument('--mode', '-m', default='train', type=str, help="train or test")
-        self.parser.add_argument('--debug', action='store_true', default=False, help="debug or not")
-        self.parser.add_argument('--nofig', action='store_true', default=False, help="don't save_plot")
+        self.parser.add_argument('--runfile', '-f', default="runfiles/IMX686/PMNNP.yml", type=Path, help="path to config")
+        self.parser.add_argument('--mode', '-m', default='evaltest', type=str, help="train or test")
+        self.parser.add_argument('--debug', action='store_true', default=True, help="debug or not")
+        self.parser.add_argument('--nofig', action='store_true', default=True, help="don't save_plot")
         self.parser.add_argument('--nohost', action='store_true', default=False, help="don't save_plot")
-        self.parser.add_argument('--gpu', default="1", help="os.environ['CUDA_VISIBLE_DEVICES']")
+        self.parser.add_argument('--gpu', default="0", help="os.environ['CUDA_VISIBLE_DEVICES']")
         return self.parser.parse_args()
 
 if __name__ == '__main__':
@@ -486,12 +486,6 @@ if __name__ == '__main__':
         best_model_path = os.path.join(f'{trainer.fast_ckpt}',f'{trainer.model_name}_last_model.pth')
     best_model = torch.load(best_model_path, map_location=trainer.device)
     trainer.net = load_weights(trainer.net, best_model, multi_gpu=trainer.multi_gpu)
-    # for i in range(5,12):
-    #     epoch_id = f'{i*50:04d}'
-    #     print(epoch_id)
-    #     best_model_path = f'saved_model/IMX686/{trainer.model_name}_e{epoch_id}.pth'
-    #     best_model = torch.load(best_model_path, map_location=trainer.device)
-    #     trainer.net = load_weights(trainer.net, best_model, multi_gpu=trainer.multi_gpu)
     # indoor_x5
     if 'eval' in trainer.mode:
         trainer.change_eval_dst('eval')

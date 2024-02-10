@@ -33,7 +33,7 @@ class SID_Trainer(Base_Trainer):
         self.legalISO = torch.tensor([50, 64, 80, 100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600,
                                    2000, 2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 16000, 20000, 25600]).to(self.device)
         
-        if 'arch_proxy' in self.args:
+        if 'arch_proxy' in self.args and self.mode == 'train':
             self.proxy = self.args['arch_proxy']
             self.proxy_net = globals()[self.proxy['name']](self.proxy)
             model_path = os.path.join(f'{self.fast_ckpt}/SonyA7S2_NoiseFlow_last_model.pth')
@@ -508,10 +508,10 @@ class SID_Parser():
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     def parse(self):
-        self.parser.add_argument('--runfile', '-f', default="runfiles/SonyA7S2/NF.yml", type=Path, help="path to config")
+        self.parser.add_argument('--runfile', '-f', default="runfiles/SonyA7S2/PMNNP.yml", type=Path, help="path to config")
         self.parser.add_argument('--mode', '-m', default='evaltest', type=str, help="train or test")
-        self.parser.add_argument('--debug', action='store_true', default=False, help="debug or not")
-        self.parser.add_argument('--nofig', action='store_true', default=False, help="don't save_plot")
+        self.parser.add_argument('--debug', action='store_true', default=True, help="debug or not")
+        self.parser.add_argument('--nofig', action='store_true', default=True, help="don't save_plot")
         self.parser.add_argument('--nohost', action='store_true', default=False, help="don't save_plot")
         self.parser.add_argument('--gpu', default="0", help="os.environ['CUDA_VISIBLE_DEVICES']")
         return self.parser.parse_args()

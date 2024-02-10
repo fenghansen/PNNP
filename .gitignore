@@ -4,12 +4,13 @@ images/*
 *.pth
 *.npy
 saved_model/*
-logs/*
+checkpoints/*
+# logs/*
 metrics/*
-*.log
+# *.log
 *.info
 *.jpg
 *.png
 *.h5
 *.pkl
-runfiles/*
+# runfiles/*

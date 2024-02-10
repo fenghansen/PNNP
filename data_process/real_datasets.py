@@ -39,12 +39,7 @@ class RealBase_Dataset(Dataset):
     def initialization(self):
         # 获取数据地址
         self.suffix = 'ARW'
-        self.dataset_file = f'SID_{self.args["mode"]}.info' 
-        if self.args["mode"] == 'train':
-            if 'rawdn3' in self.args['command']: 
-                self.dataset_file = f'SID_{self.args["mode"]}_denoised3.info'
-            if 'rawdn4' in self.args['command']: 
-                self.dataset_file = f'SID_{self.args["mode"]}_denoised4.info' 
+        self.dataset_file = f'SID_{self.args["mode"]}.info'  
         with open(f"infos/{self.dataset_file}", 'rb') as info_file:
             self.infos = pkl.load(info_file)
             print(f'>> Successfully load "{self.dataset_file}" (Length: {len(self.infos)})')

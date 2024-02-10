@@ -1,0 +1,33 @@
+Model Name:	SonyA7S2_PMNNP_Unet
+Architecture:	UNetSeeInDark
+TrainDataset:	PMNNP_Dataset
+EvalDataset:	ELD_Dataset
+CameraType:	SonyA7S2
+num_channels:	32
+BatchSize:	1
+PatchSize:	512
+LearningRate:	0.0001
+Epoch:		2400
+num_workers:	0
+Command:	idremap, darkshading2, preHB, augv2
+Let's use 1 GPUs!
+2024-01-10 12:08:24 >>  ELD Datasets: Dgain=100
+2024-01-10 12:12:05 >>  Epoch -1: PSNR=47.13
+psnrs_lr=31.22, psnrs_dn=47.13
+ssims_lr=0.5146, ssims_dn=0.9872
+2024-01-10 12:12:05 >>  ELD Datasets: Dgain=200
+2024-01-10 12:14:53 >>  Epoch -1: PSNR=45.21
+psnrs_lr=26.28, psnrs_dn=45.21
+ssims_lr=0.2401, ssims_dn=0.9770
+2024-01-10 12:14:58 >>  SID Datasets: Dgain=100
+2024-01-10 12:19:37 >>  Epoch -1: PSNR=43.55
+psnrs_lr=29.35, psnrs_dn=43.55
+ssims_lr=0.5259, ssims_dn=0.9613
+2024-01-10 12:19:37 >>  SID Datasets: Dgain=250
+2024-01-10 12:23:28 >>  Epoch -1: PSNR=41.16
+psnrs_lr=24.00, psnrs_dn=41.16
+ssims_lr=0.3346, ssims_dn=0.9491
+2024-01-10 12:23:28 >>  SID Datasets: Dgain=300
+2024-01-10 12:28:07 >>  Epoch -1: PSNR=38.04
+psnrs_lr=22.48, psnrs_dn=38.04
+ssims_lr=0.2757, ssims_dn=0.9362

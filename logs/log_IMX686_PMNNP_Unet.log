@@ -1,0 +1,45 @@
+Model Name:	IMX686_PMNNP_Unet
+Architecture:	UNetSeeInDark
+TrainDataset:	IMX686_PMNNP_Dataset
+EvalDataset:	IMX686_Dataset
+CameraType:	IMX686
+num_channels:	32
+BatchSize:	1
+PatchSize:	512
+LearningRate:	0.0001
+Epoch:		1000
+num_workers:	6
+Command:	alldg, darkshading2++, augv2, HB
+Let's use 1 GPUs!
+2024-01-10 14:22:56 >>  indoor_x5 Datasets: Dgain=1
+2024-01-10 14:28:12 >>  Epoch -1: PSNR=49.40
+psnrs_lr=32.83, psnrs_dn=49.40
+ssims_lr=0.6720, ssims_dn=0.9918
+2024-01-10 14:28:12 >>  indoor_x5 Datasets: Dgain=2
+2024-01-10 14:33:38 >>  Epoch -1: PSNR=47.58
+psnrs_lr=29.10, psnrs_dn=47.58
+ssims_lr=0.4597, ssims_dn=0.9868
+2024-01-10 14:33:39 >>  indoor_x5 Datasets: Dgain=4
+2024-01-10 14:35:01 >>  Epoch -1: PSNR=45.41
+psnrs_lr=25.04, psnrs_dn=45.41
+ssims_lr=0.2348, ssims_dn=0.9806
+2024-01-10 14:35:01 >>  indoor_x5 Datasets: Dgain=8
+2024-01-10 14:37:46 >>  Epoch -1: PSNR=43.08
+psnrs_lr=20.46, psnrs_dn=43.08
+ssims_lr=0.0852, ssims_dn=0.9667
+2024-01-10 14:37:46 >>  indoor_x5 Datasets: Dgain=16
+2024-01-10 14:39:05 >>  Epoch -1: PSNR=40.07
+psnrs_lr=15.33, psnrs_dn=40.07
+ssims_lr=0.0233, ssims_dn=0.9432
+2024-01-10 14:39:08 >>  outdoor_x3 Datasets: Dgain=1
+2024-01-10 14:44:58 >>  Epoch -1: PSNR=46.36
+psnrs_lr=33.29, psnrs_dn=46.36
+ssims_lr=0.7274, ssims_dn=0.9886
+2024-01-10 14:44:58 >>  outdoor_x3 Datasets: Dgain=2
+2024-01-10 14:47:39 >>  Epoch -1: PSNR=44.94
+psnrs_lr=29.54, psnrs_dn=44.94
+ssims_lr=0.5119, ssims_dn=0.9835
+2024-01-10 14:47:40 >>  outdoor_x3 Datasets: Dgain=4
+2024-01-10 14:48:35 >>  Epoch -1: PSNR=43.01
+psnrs_lr=25.31, psnrs_dn=43.01
+ssims_lr=0.2569, ssims_dn=0.9692
