@@ -1,5 +1,17 @@
 # PNNP (Evaluation Only)
-### The training code will be available after the paper is accepted.  
+IEEE TPAMI 2026: [Learning Physics-Informed Noise Models from Dark Frames for Low-Light Raw Image Denoising](https://ieeexplore.ieee.org/document/11342300)  
+
+Arxiv (Old Name): [Physics-guided Noise Neural Proxy for Practical Low-light Raw Image Denoising](https://arxiv.org/abs/2310.09126)
+## Code Release
+> 因忙于毕业论文与项目，近半年分身乏术没有整理，预计7月10日前整理完毕。
+没想到中稿花了两年，期间核心技术已应用，不方便完全公开，因此届时预计释放PNNP在SonyA7S2和IMX686上的权重，并释放有PNNP权重时的去噪训练代码。
+PNNP本身网络结构极其简单，您可以让gpt或者claude按论文描述复现一下，参数都给了，很容易复现，代码实现效率大概率比我当年还高。
+
+> Due to competing demands from my dissertation and other projects, I have been unable to spare the time to organize the code over the past six months. I expect to complete this by July 10.
+As the core technology has already been deployed in commercial applications, the full implementation cannot be made publicly available. Instead, I will release the PNNP weights for the Sony A7S2 and IMX686 sensors, along with the denoising training code that incorporates these PNNP weights.
+The PNNP network architecture itself is extremely straightforward. You can easily reproduce it by following the architectural description and parameters provided in the paper—GPT or Claude should handle this effortlessly, and their implementations will likely be more efficient than my original version from years ago.
+
+## Introduction
 Currently, this project is only used to evaluate the performance of denoising models trained based on PNNP.  
 We also provide a evaluation service for comparative methods, allowing everyone to verify various comparison methods under a unified low-light denoising dataset codebase.   
 Currently, supported comparison include:
@@ -64,11 +76,14 @@ python3 trainer_PNNP_LRID.py -f runfiles/IMX686/Ours.yml --mode train
 ## 🏷️ Citation
 Please cite our paper if you find our code helpful in your research or work.
 ```bibtex
-@article{feng2023physics,
-  title={Physics-guided Noise Neural Proxy for Practical Low-light Raw Image Denoising},
+@article{feng2026learning,
   author={Feng, Hansen and Wang, Lizhi and Huang, Yiqi and Wang, Yuzhi and Zhu, Lin and Huang, Hua},
-  journal={arXiv preprint arXiv:2310.09126},
-  year={2023}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Learning Physics-Informed Noise Models from Dark Frames for Low-Light Raw Image Denoising}, 
+  year={2026},
+  volume={48},
+  number={4},
+  pages={3952-3969}
 }
 ```
 
