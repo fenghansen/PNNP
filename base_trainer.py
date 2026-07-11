@@ -42,6 +42,21 @@ class Base_Trainer():
                                         lr=self.hyper['learning_rate'])
         return self.lr_lambda
 
+    def resolve_input_path(self, path):
+        """优先使用项目内路径；若不存在，再按历史逻辑映射到数据集根目录。"""
+        path = os.fspath(path)
+        if os.path.isabs(path):
+            return path
+        project_path = os.path.abspath(path)
+        if os.path.exists(project_path):
+            return project_path
+        dataset_roots = [os.environ.get('PNNP_DATA_ROOT'), '/data/fenghansen/datasets']
+        for dataset_root in filter(None, dataset_roots):
+            dataset_path = os.path.join(dataset_root, path)
+            if os.path.exists(dataset_path):
+                return dataset_path
+        return os.path.join(self.hostpath, path)
+
     def initialization(self):
         os.environ["CUDA_VISIBLE_DEVICES"] = self.parser.gpu
         with open(self.parser.runfile, 'r', encoding="utf-8") as f:
@@ -60,10 +75,9 @@ class Base_Trainer():
         if not self.parser.nohost:
             for key in self.args:
                 if 'dst' in key:
-                    self.args[key]['root_dir'] = os.path.join(self.hostpath, self.args[key]['root_dir'])
-                    self.args[key]['bias_dir'] = os.path.join(self.hostpath, self.args[key]['bias_dir'])
-                    self.args[key]['ds_dir'] = os.path.join(self.hostpath, self.args[key]['ds_dir'])
-            self.model_dir = os.path.join(self.hostpath, self.args['checkpoint'])
+                    self.args[key]['root_dir'] = self.resolve_input_path(self.args[key]['root_dir'])
+                    self.args[key]['bias_dir'] = self.resolve_input_path(self.args[key]['bias_dir'])
+                    self.args[key]['ds_dir'] = self.resolve_input_path(self.args[key]['ds_dir'])
         self.dst = self.args['dst']
         self.hyper = self.args['hyper']
         self.arch = self.args['arch']

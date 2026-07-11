@@ -5,7 +5,8 @@ images/*
 *.npy
 saved_model/*
 checkpoints/*
-# logs/*
+logs/*
+worklog/
 metrics/*
 # *.log
 *.info
@@ -14,3 +15,7 @@ metrics/*
 *.h5
 *.pkl
 # runfiles/*
+.cache/
+paper/
+secret.md
+templet*
