@@ -19,3 +19,6 @@ metrics/*
 paper/
 secret.md
 templet*
+!images/github/
+!images/github/*.jpg
+!images/github/*.png
